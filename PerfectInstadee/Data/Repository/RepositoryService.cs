@@ -18,7 +18,7 @@ namespace PerfectInstadee.Data.Repository
             await SaveChangesAsync();
         }
 
-        public async Task DeleteContactAsync(string id)
+        public async Task DeleteContactAsync(int id)
         {
             var contact = await _context.Set<Contact>().FirstOrDefaultAsync(n => n.Id == id);
             EntityEntry contactEntry = _context.Entry<Contact>(contact);
@@ -26,7 +26,7 @@ namespace PerfectInstadee.Data.Repository
             await SaveChangesAsync();
         }
 
-        public async Task<List<Contact>> GetAllContactsByIdAsync(string id)
+        public async Task<List<Contact>> GetAllContactsByIdAsync(int id)
         {
             var user = await _context.Set<User>().Include(u => u.Contacts).FirstOrDefaultAsync(u => u.Id == id);
             if (user != null)
@@ -40,6 +40,31 @@ namespace PerfectInstadee.Data.Repository
             }
         }
 
+        public async Task<Contact> GetContactByIdAsync(int id)
+        {
+            var contact = await _context.Set<Contact>().FirstOrDefaultAsync(c => c.Id == id);
+            if (contact != null)
+            {
+                return contact;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            var user = await _context.Set<User>().FirstOrDefaultAsync(u => u.Id == id);
+            if (user != null)
+            {
+                return user;
+            }
+            else
+            {
+                return new User();
+            }
+        }
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

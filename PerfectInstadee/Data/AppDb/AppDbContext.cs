@@ -14,7 +14,7 @@ namespace PerfectInstadee.Data.AppDb
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Contact>().HasOne(c => c.User).WithMany(u => u.Contacts).OnDelete(DeleteBehavior.Cascade);
-
+            builder.Entity<PhoneNumber>().HasOne(pn=>pn.Contact).WithMany(c=>c.PhoneNumbers).OnDelete(DeleteBehavior.Cascade);
             base.OnModelCreating(builder);
         }
     }

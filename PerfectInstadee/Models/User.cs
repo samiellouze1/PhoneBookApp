@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PerfectInstadee.Models
 {
@@ -7,12 +8,14 @@ namespace PerfectInstadee.Models
     {
         [Key]
         [Required]
-        public string Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [Required]
+        public int PhoneNumber { get; set; }
+        [Required]
         public string FullName { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]      
-        public int PhoneNumber { get; set; }
         [Required]      
         public List<Contact> Contacts { get; set; }
     }

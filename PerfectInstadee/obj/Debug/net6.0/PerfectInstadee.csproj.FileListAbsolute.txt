@@ -35,3 +35,7 @@ C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\obj\Debug\ne
 C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\obj\Debug\net6.0\PerfectInstadee.pdb
 C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\obj\Debug\net6.0\PerfectInstadee.genruntimeconfig.cache
 C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\obj\Debug\net6.0\ref\PerfectInstadee.dll
+C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ThinkPad\source\repos\GDPS\PerfectInstadee\PerfectInstadee\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

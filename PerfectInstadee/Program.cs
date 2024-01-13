@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using PerfectInstadee.Data.AppDb;
 using PerfectInstadee.Data.Repository;
 using System.Text.Json.Serialization;
@@ -17,11 +19,13 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddControllers().AddJsonOptions(x =>
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -31,5 +35,7 @@ app.UseAuthorization();
 app.UseRouting();
 app.MapControllers();
 
+
+AppDbInitializer.Seed(app);
 
 app.Run();
